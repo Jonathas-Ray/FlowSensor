@@ -1,2 +1,7 @@
-# FlowSensor
-Projeto do primeiro semestre para as matérias Fundamentos da Eletrônica e Logica de Programação onde me valho de IoT para, através de um arduíno, registrar o fluxo de água e exibi-lo, a princípio através de LEDs.
+# Projeto com WaterFlow Sensor
+<div style="text-align: justify;">
+    Projeto do primeiro semestre para as matérias Fundamentos da Eletrônica e Logica de Programação onde me valho de IoT para, através de um arduíno, registrar o fluxo de água e exibi-lo, a princípio através de LEDs.<br/><br/>
+    O sistema será composto por um cano de <b>meio metro por 50 mm</b> de diametro comportando aproximadamente <b>0,98L</b> de água e que contém a água através de um registro que ao ser aberto libera a água para o sensor que por sua vez derrama noutro trecho de cano <b>0,5m/50mm</b> também parado por um registro. Após este segundo registro um novo sensor capta a vazão da água. As entradas e saídas de fluxo de água são percebidas pelos sensores, passadas ao arduíno que liga LEDs para sinalizar o volume de água contido.
+    <br><br>A primeira versão foi pensada para ser simples, de modo que optei por 7 LEDs para exibir o volume de água armazenado de modo a ter ao mesmo tempo uma precisão de 1/6 de volume e um controle para caso haja água no sistema mas não tenha alcançado o primeiro limite (1/6).
+    <br><br><a href="https://www.dataq.com/resources/pdfs/datasheets/flow-sensor-ds.pdf" style="color: blue; font-weight: bold;">>>HYPERLINK PARA O DATASHEET DO SENSOR<<</a>
+</div>
