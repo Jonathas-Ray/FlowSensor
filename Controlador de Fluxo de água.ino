@@ -1,5 +1,5 @@
 #include <LiquidCrystal.h>
-#define Tick = 500/246; // 0,9817 L == 483.12 Tiques, onde cada 500 ML são 246;
+#define Tick 500.0 / 246.0 // 0,9817 L == 483.12 Tiques, onde cada 500 ML são 246;
 
 int flowSensorInc = 2;  // Sensor 1
 int flowSensorDec = 3;  // Sensor 2
@@ -30,16 +30,22 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(flowSensorDec), decreaseStorage, RISING); // (entrada, função a ser executada, comportamento a ser observado no sensor)
 
   lcd.print("Total armazenado:");
-  lcd.setCursor(0, 1);  // necessário p/ passar pra segunda linha, do contrário sobrescreve a primeira
-  lcd.print("%.3f Litros", totalStored_ml);
+  lcd.setCursor(0, 1); // Passa para a segunda linha
+  lcd.print(totalStored_ml, 3); // Exibe o valor com 3 casas decimais
 }
 
 void loop() {
-  //Dada a ausência da necessidade de controlar melhor os dados de entrada e saída de pulsos, os fiz diretamente sem uma variável intermediária
+  
   totalStored += increasePulse;
   increasePulse = 0;
 
   totalStored -= decreasePulse;
   decreasePulse = 0;
+
   totalStored_ml = totalStored * Tick;
+
+  // P/ atualizar o LCD
+  lcd.setCursor(0, 1); // Posiciona na segunda linha
+  lcd.print("               "); // Para limpá-la
+  lcd.print(totalStored_ml, 3);
 }
